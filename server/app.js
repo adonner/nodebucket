@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
+const Employee = require('./db-models/employee');
 
 /**
  * App configurations
@@ -24,7 +25,7 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 const port = 3000; // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
-const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/nodebucket?retryWrites=true&w=majority';
+const conn = 'mongodb+srv://admin:admin@nodebucket-gmrfk.mongodb.net/nodebucket?retryWrites=true&w=majority';
 
 /**
  * Database connection
@@ -32,6 +33,7 @@ const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/nodebuc
 mongoose.connect(conn, {
   promiseLibrary: require('bluebird'),
   useUnifiedTopology: true,
+  useCreateIndex: true,
   useNewUrlParser: true
 }).then(() => {
   console.debug(`Connection to the database instance was successful`);
@@ -42,6 +44,22 @@ mongoose.connect(conn, {
 /**
  * API(s)
  */
+
+ /**
+  * FindEmployeeById
+  */
+
+app.get('/api/employees/:empId', function(req, res, next) {
+  Employee.findOne({'empId': req.params.empId}, function(err, employee){
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(employee);
+      res.json(employee);
+    }
+  })
+});
 
 /**
  * Create and start server
