@@ -1,6 +1,9 @@
 import {Routes} from '@angular/router';
 import {BaseLayoutComponent} from './shared/base-layout/base-layout.component';
 import {HomeComponent} from './pages/home/home.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 export const AppRoutes: Routes = [
   {
@@ -9,11 +12,19 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuard]
       }
-      /*
-        New components go here...
-       */
+    ]
+  },
+  {
+    path: 'session',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: 'signin',
+        component: SigninComponent
+      }
     ]
   }
 ];

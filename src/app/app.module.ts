@@ -14,13 +14,21 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
+
+import { SigninComponent } from './pages/signin/signin.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
     AppComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
-    HomeComponent
+    HomeComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +41,13 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
