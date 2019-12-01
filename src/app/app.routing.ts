@@ -1,3 +1,14 @@
+/*============================================
+; Title: app.routing.ts
+; Author: Adam Donner
+; Date: 30 November 2019
+; Description:  app.routing.ts
+;===========================================
+*/
+
+
+// start program
+
 import {Routes} from '@angular/router';
 import {BaseLayoutComponent} from './shared/base-layout/base-layout.component';
 import {HomeComponent} from './pages/home/home.component';
@@ -28,3 +39,4 @@ export const AppRoutes: Routes = [
     ]
   }
 ];
+// end program

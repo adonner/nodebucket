@@ -1,3 +1,14 @@
+/*============================================
+; Title: base-layout.component.ts
+; Author: Adam Donner
+; Date: 6 November 2019
+; Description:  base-layout.component.ts
+;===========================================
+*/
+
+
+// start program
+
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
@@ -17,9 +28,12 @@ export class BaseLayoutComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Delete cookie and redirect to signin page.
+   */
   logout() {
 
-    this.cookieService.set(null,null,null);
+    this.cookieService.delete('session_user');
     this.router.navigate(['/session/signin']);
 
 
@@ -27,3 +41,4 @@ export class BaseLayoutComponent implements OnInit {
   }
 
 }
+// end program

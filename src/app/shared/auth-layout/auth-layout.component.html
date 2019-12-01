@@ -1,2 +1,20 @@
-<router-outlet></router-outlet>
-
+<div fxLayout="column">
+        <!-- navigation -->
+        <nav fxFlex>
+          <mat-toolbar>
+            <!-- navbar container -->
+            <!--logo-->
+            <img src="/assets/img/nodebucket.png" width="150px" height="90px">
+            <div class="navbar-container">
+              <button class="navbar-link" routerLink="/" mat-button>Home</button>
+              <button class="navbar-link" mat-button>About</button>
+            </div>
+          </mat-toolbar>
+        </nav>
+      
+        <!-- main content -->
+        <div fxFlex>
+          <main class="main-content" fxFlex="100%;">
+            <router-outlet></router-outlet>
+          </main>
+        </div>

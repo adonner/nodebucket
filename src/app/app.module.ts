@@ -1,3 +1,14 @@
+/*============================================
+; Title: app.module.ts
+; Author: Adam Donner
+; Date: 30 November 2019
+; Description:  app.module.ts
+;===========================================
+*/
+
+
+// start program
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
@@ -51,3 +62,4 @@ import { CookieService } from 'ngx-cookie-service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// end program

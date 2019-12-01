@@ -1,3 +1,14 @@
+/*============================================
+; Title: auth-layout.component.ts
+; Author: Adam Donner
+; Date: 30 November 2019
+; Description:  auth-layout.component.ts
+;===========================================
+*/
+
+
+// start program
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,3 +24,4 @@ export class AuthLayoutComponent implements OnInit {
   }
 
 }
+// end program

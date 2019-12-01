@@ -1,3 +1,14 @@
+/*============================================
+; Title: auth.guard.ts
+; Author: Adam Donner
+; Date: 30 November 2019
+; Description:  auth.guard.ts
+;===========================================
+*/
+
+
+// start program
+
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -14,10 +25,18 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const sessionUser = this.cookieService.get('session_user');
 
+      /**
+       * If active session return true.
+       */
       if (sessionUser) {
         return true;
-      } else {
+      } 
+      /**
+       * else navigate to signin page
+       */
+      else {
         this.router.navigate(['session/signin']);
       }
   }
 }
+// end program

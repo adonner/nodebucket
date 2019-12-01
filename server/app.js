@@ -1,3 +1,15 @@
+/*============================================
+; Title: app.js
+; Author: Adam Donner
+; Date: 30 November 2019
+; Description:  Creates server and API for 
+; Angular application.
+;===========================================
+*/
+
+
+// start program
+
 /**
  * Require statements
  */
@@ -24,7 +36,7 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
  */
 const port = 3000; // server port
 
-// TODO: This line will need to be replaced with your actual database connection string
+// Mongodb connection string
 const conn = 'mongodb+srv://admin:admin@nodebucket-gmrfk.mongodb.net/nodebucket?retryWrites=true&w=majority';
 
 /**
@@ -67,3 +79,5 @@ app.get('/api/employees/:empId', function(req, res, next) {
 http.createServer(app).listen(port, function() {
   console.log(`Application started and listening on port: ${port}`)
 }); // end http create server function
+
+// end program
