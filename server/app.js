@@ -1,7 +1,7 @@
 /*============================================
 ; Title: app.js
 ; Author: Adam Donner
-; Date: 30 November 2019
+; Date: 6 December 2019
 ; Description:  Creates server and API for 
 ; Angular application.
 ;===========================================
@@ -77,6 +77,9 @@ app.get('/api/employees/:empId', function(req, res, next) {
  * FindAllTasks
  */
 app.get('/api/employees/:empId/tasks', function(req, res, next) {
+  /**
+   * Find all tasks based on employee ID and return only todo and done
+   */
   
   Employee.findOne({'empId': req.params.empId}, 'empId todo done', function(err, tasks) {
 
@@ -105,6 +108,9 @@ app.post('/api/employees/:empId/tasks', function(req, res, next) {
         text: req.body.text
       };
 
+        /**
+         * Push todo into task array
+         */
       employee.todo.push(task);
       employee.save(function(err, employee) {
         if (err) {
@@ -131,11 +137,17 @@ app.put('/api/employees/:empId/tasks', function(req, res, next) {
     } else {
       console.log(employee);
 
+      /**
+       * Set employee todo and done
+       */
       employee.set({
         todo: req.body.todo,
         done: req.body.done
       });
-
+      
+      /**
+       * Save record
+       */
       employee.save(function(err, employee) {
         if (err) {
           console.log(err);
@@ -163,6 +175,9 @@ app.delete('/api/employees/:empId/tasks/:taskId', function(req, res, next) {
       const todoItem = employee.todo.find(item => item._id.toString() === req.params.taskId);
       const doneItem = employee.done.find(item => item._id.toString() === req.params.taskId);
 
+      /**
+       * If todo item is true, remove item and save record.
+       */
       if (todoItem) {
         employee.todo.id(todoItem._id).remove();
         employee.save(function(err, emp1) {
@@ -174,6 +189,9 @@ app.delete('/api/employees/:empId/tasks/:taskId', function(req, res, next) {
             res.json(emp1);
           }
         })
+        /**
+         * If done item is true, remove item and save record
+         */
       } else if (doneItem) {
         employee.done.id(doneItem._id).remove();
         employee.save(function(err, emp2) {
@@ -185,7 +203,11 @@ app.delete('/api/employees/:empId/tasks/:taskId', function(req, res, next) {
             res.json(emp2);
           }
         })
-      } else {
+      } 
+      /**
+       * Else both todo and done are null, return an error code and message
+       */
+      else {
         console.log(`Unable to locate task: ${req.params.taskId}`)
         res.status(200).send({
           'type': 'warning',
