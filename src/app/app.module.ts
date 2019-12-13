@@ -28,10 +28,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
+
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 import { SigninComponent } from './pages/signin/signin.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AboutComponent } from './pages/about/about.component';
+import { TaskCreateDialogComponent } from './pages/task-create-dialog/task-create-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +46,9 @@ import { CookieService } from 'ngx-cookie-service';
     BaseLayoutComponent,
     AuthLayoutComponent,
     HomeComponent,
-    SigninComponent
+    SigninComponent,
+    AboutComponent,
+    TaskCreateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,17 +58,24 @@ import { CookieService } from 'ngx-cookie-service';
     ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'}),
     FlexLayoutModule,
+    DragDropModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatDividerModule
   ],
   providers: [
     CookieService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    TaskCreateDialogComponent
+  ]
 })
 export class AppModule { }
 // end program
