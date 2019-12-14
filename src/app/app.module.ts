@@ -31,6 +31,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
@@ -67,7 +68,8 @@ import { TaskCreateDialogComponent } from './pages/task-create-dialog/task-creat
     MatInputModule,
     MatMenuModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule
   ],
   providers: [
     CookieService

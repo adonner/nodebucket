@@ -13,14 +13,31 @@
 }
 
 .tasks-container {
-  height: 100%;
-  width: 50%;
+  width:75%;
   margin: 0 auto;
 }
 
+h2 {
+  display: flex;
+}
+
+.test {
+  margin: 0 auto;
+}
+
+.task-title {
+  font-weight: normal;
+  color: #1a237e
+}
+
+
 .mat-card-content {
-  height: 100%;
   font-size: 18px;
+  min-height: 60px;
+}
+
+.task-card {
+  height: 60px;
 }
 
 
@@ -39,3 +56,5 @@
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+
