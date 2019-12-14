@@ -1,93 +1,8 @@
-<div fxLayout="column" class="main-welcome">
-  <h1 class="title">
-    Welcome to WEB 450's - nodebucket Project <br />
-    <span class="subtitle">
-      Pay close attention to the requirements, double and triple check the files for code attribution, and do not wait unitl the last minute to begin working on each item.
-    </span>
-  </h1>
-
-
-  <br>
-  <section class="mat-typography test">
-  <div fxLayout="row" fxLayoutGap="50px">
-  <div fxLayout="column">
-
-  <h1>
-    ToDo   
-      <div fxFlex></div>
-      <button [matMenuTriggerFor]="taskMenu" mat-button xposition="before">
-        <mat-icon>more_horiz</mat-icon>
-      </button>
-      <mat-menu #taskMenu="matMenu" x-position="before">
-        <button mat-menu-item (click)="openCreateTaskDialog()">Create task</button>
-      </mat-menu>
-  </h1>
-  <mat-divider></mat-divider>
-  <mat-list
-    cdkDropList
-    #todoList="cdkDropList"
-    [cdkDropListData]="todo"
-    [cdkDropListConnectedTo]="[doneList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)" mat-list>
-    <mat-list-item class="example-box" *ngFor="let item of todo" cdkDrag>{{item.text}}
-        <div fxFlex></div>
-        <button [matMenuTriggerFor]="doneOptionsMenu" mat-icon-button class="ml-xs">
-            <mat-icon>more_horiz</mat-icon>
-          </button>
-          <mat-menu #doneOptionsMenu="matMenu" x-position="before">
-            <button (click)="deleteTask(item._id)" mat-menu-item>
-              Remove
-            </button>
-          </mat-menu>
-    </mat-list-item>
-  </mat-list>
-  </div>
-
-  <div fxLayout="column" style="padding-top: 3px;">
-  <h1>Done</h1>
-  <mat-divider></mat-divider>
-  <mat-list
-    cdkDropList
-    #doneList="cdkDropList"
-    [cdkDropListData]="done"
-    [cdkDropListConnectedTo]="[todoList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    <mat-list-item class="example-box" *ngFor="let item of done" cdkDrag>{{item.text}}
-        <div fxFlex></div>
-        <button [matMenuTriggerFor]="doneOptionsMenu" mat-icon-button class="ml-xs">
-            <mat-icon>more_horiz</mat-icon>
-          </button>
-          <mat-menu #doneOptionsMenu="matMenu" x-position="before">
-            <button (click)="deleteTask(item._id)" mat-menu-item>
-              Remove
-            </button>
-          </mat-menu>
-    </mat-list-item>
-  </mat-list>
-  </div>
-</div>
-</section>
-
-
-</div>
-
-
-
-
-
-
-
-
 
 
 <div fxLayout="column" class="main-welcome">
     <h1 class="title">
-      Welcome to WEB 450's - nodebucket Project <br />
-      <span class="subtitle">
-        Pay close attention to the requirements, double and triple check the files for code attribution, and do not wait unitl the last minute to begin working on each item.
-      </span>
+      Welcome to - nodebucket<br />
     </h1>
   
     <div fxLayout="row" fxLayoutGap="15px" class="tasks-container">
@@ -117,7 +32,7 @@
               <mat-list-item class="example-box" *ngFor="let item of todo" cdkDrag>{{item.text}}
                   <div fxFlex></div>
                   <button [matMenuTriggerFor]="doneOptionsMenu" mat-icon-button class="ml-xs">
-                      <mat-icon>more_horiz</mat-icon>
+                      <mat-icon  class="icon">more_horiz</mat-icon>
                     </button>
                     <mat-menu #doneOptionsMenu="matMenu" x-position="before">
                       <button (click)="deleteTask(item._id)" mat-menu-item>
@@ -139,7 +54,7 @@
             </mat-card-title>
             <hr>
   
-            <mat-card-content style="padding-top: 7px;">
+            <mat-card-content>
                 <mat-list
                 cdkDropList
                 #doneList="cdkDropList"
@@ -150,7 +65,7 @@
                 <mat-list-item class="example-box" *ngFor="let item of done" cdkDrag>{{item.text}}
                     <div fxFlex></div>
                     <button [matMenuTriggerFor]="doneOptionsMenu" mat-icon-button class="ml-xs">
-                        <mat-icon>more_horiz</mat-icon>
+                        <mat-icon  class="icon">more_horiz</mat-icon>
                       </button>
                       <mat-menu #doneOptionsMenu="matMenu" x-position="before">
                         <button (click)="deleteTask(item._id)" mat-menu-item>

@@ -21,6 +21,10 @@ h2 {
   display: flex;
 }
 
+.icon {
+  color: #424242;
+}
+
 .test {
   margin: 0 auto;
 }
