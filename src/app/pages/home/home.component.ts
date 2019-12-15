@@ -1,7 +1,7 @@
 /*============================================
 ; Title: home.component.ts
 ; Author: Adam Donner
-; Date: 30 November 2019
+; Date: 13 December 2019
 ; Description:  home.component.ts
 ;===========================================
 */
@@ -34,6 +34,9 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private cookieService: CookieService, private dialog: MatDialog) { 
     this.sessionUser = this.cookieService.get('session_user');
 
+    /**
+     * Get the tasks and fill both columns
+     */
     this.http.get('/api/employees/' + this.sessionUser + '/tasks').subscribe(res => {
       this.tasks = res;
       this.todo = this.tasks.todo;
@@ -49,11 +52,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Create task dialog box
+   */
   openCreateTaskDialog() {
     const dialogRef = this.dialog.open(TaskCreateDialogComponent, { 
       disableClose: true
     });
-
+    /**
+     * Post to tasks
+     */
     dialogRef.afterClosed().subscribe(data => {
       if(data) {
         this.http.post('/api/employees/' + this.sessionUser + '/tasks', {
@@ -69,6 +77,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+    /**
+     * Delete tasks from either array
+     */
   deleteTask(taskId) {
     if (taskId) {
       console.log(`Task item: ${taskId} is being removed.`);
@@ -82,6 +93,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * Drag and drop between columns
+   */
   drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -115,7 +129,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
+  /**
+   * update Task, used in drag and drop
+   */
   updateTasks(todo, done) {
     return this.http.put('/api/employees/' + this.sessionUser + '/tasks', {
       todo: todo,

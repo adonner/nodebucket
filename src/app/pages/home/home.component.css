@@ -44,6 +44,7 @@ h2 {
   height: 60px;
 }
 
+/* Animation styling provided by https://material.angular.io/cdk/drag-drop/*/
 
 .cdk-drag-preview {
   box-sizing: border-box;

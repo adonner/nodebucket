@@ -40,6 +40,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AboutComponent } from './pages/about/about.component';
 import { TaskCreateDialogComponent } from './pages/task-create-dialog/task-create-dialog.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TaskCreateDialogComponent } from './pages/task-create-dialog/task-creat
     HomeComponent,
     SigninComponent,
     AboutComponent,
-    TaskCreateDialogComponent
+    TaskCreateDialogComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
