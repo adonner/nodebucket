@@ -26,7 +26,7 @@ export class TaskCreateDialogComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      text: [null, Validators.compose([Validators.required])]
+      text: [null, Validators.compose([Validators.required, Validators.minLength(3)])]
     });
   }
   /**
